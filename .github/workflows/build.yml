@@ -615,6 +615,8 @@ jobs:
           fi
 
           make O=out $KERNEL_CONFIGS $DROIDSPACES_CONFIG
+          scripts/config --file out/.config -d LTO_CLANG_FULL -e LTO_CLANG_THIN
+          make O=out olddefconfig
 
       - name: Build Kernel Image
         run: |
